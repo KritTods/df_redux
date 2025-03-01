@@ -1,0 +1,16 @@
+version: '3.9'
+
+services:
+  df-redux-web:
+    container_name: df-redux-frontend
+    image: df-redux-frontend.latest
+    build: .
+    # ports:
+    #   - '3001:3000'
+    networks:
+      - web-network
+    restart: unless-stopped
+
+networks:
+  web-network:
+    external: true

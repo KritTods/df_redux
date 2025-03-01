@@ -1,0 +1,19 @@
+default:
+  tags:
+    - g3
+    
+stages:
+  - build
+
+variables:
+  GIT_STRATEGY: clone  
+
+build:
+  stage: build
+  script:
+    - echo "Build application..."
+    - docker ps
+    - docker build -t  df-redux.1.0.0 ./
+    - docker system prune -f
+  only:
+    - main-g3
